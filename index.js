@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 
 // set home route/404
 app.get('/', (req, res, next) => {
-  res.render('index')
+  res.render('home')
   next()
 })
 
