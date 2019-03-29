@@ -6,6 +6,10 @@ const itemSchema = new mongoose.Schema({
     type: Date,
     default: Date.now()
   },
+  createdBy: {
+    name: { type: String, required: true },
+    id: { type: String, required: true }
+  },
   title: {
     type: String,
     required: true
