@@ -32,7 +32,7 @@ module.exports = passport => {
                 req.flash('signupMessage', 'That email is already taken.')
               )
             }
-            if (!email || !req.body.displayName || !password) {
+            if (!email || !req.body.username || !password) {
               return done(
                 null,
                 false,
@@ -45,7 +45,7 @@ module.exports = passport => {
               var newUser = new User()
               newUser.local.email = email
               newUser.local.password = newUser.generateHash(password)
-              newUser.local.displayName = req.body.displayName
+              newUser.local.username = req.body.username
               newUser.save(err => {
                 if (err) throw err
                 return done(null, newUser)

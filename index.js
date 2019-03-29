@@ -21,8 +21,13 @@ app.use(express.static('public'))
 // app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 
 // import controllers
+const userController = require('./controllers/users')
 
 // passport
+app.use(session({ secret: 'secrets', resave: true, saveUninitialized: true }))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
 
 // view engine
 app.set('views', './views')
@@ -36,6 +41,7 @@ app.use((req, res, next) => {
 })
 
 // set controllers
+app.use('/users', userController)
 
 // set home route/404
 app.get('/', (req, res, next) => {
