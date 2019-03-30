@@ -1,11 +1,9 @@
-const Item = require('../models/item')
-
 const utils = {
   // check for logged in user
   isLoggedIn: (req, res, next) => {
     if (req.isAuthenticated()) return next()
     res.render('users/login', {
-      message: 'You must be logged in to view this page.'
+      message: 'Log in or create an account to view this page.'
     })
   },
   // check that current user is post author for editing/deleting rights

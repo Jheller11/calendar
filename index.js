@@ -18,10 +18,11 @@ app.use(cookieParser())
 app.use(compression())
 app.use(helmet())
 app.use(express.static('public'))
-// app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
+app.use(favicon(path.join(__dirname, 'public', 'media', 'favicon.ico')))
 
 // import controllers
 const userController = require('./controllers/users')
+const calendarController = require('./controllers/calendar')
 
 // passport
 app.use(session({ secret: 'secrets', resave: true, saveUninitialized: true }))
@@ -42,6 +43,7 @@ app.use((req, res, next) => {
 
 // set controllers
 app.use('/users', userController)
+app.use('/calendar', calendarController)
 
 // set home route/404
 app.get('/', (req, res, next) => {
