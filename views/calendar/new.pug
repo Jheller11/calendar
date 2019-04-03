@@ -1,0 +1,35 @@
+extends ../layout.pug
+
+block content
+    .nav.d-flex.justify-content-between
+        a.nav-link(href='/calendar') 
+            i.fas.fa-angle-double-left 
+            span  Back
+    .card
+        .card-body
+            h4.card-title Add Item:
+            form(method="POST" action='/calendar')
+                .form-group
+                    label(for='title') Title*:
+                    input.form-control(type='text' name='title' required)
+                    small.text-blue Type or paste article title here.
+                .form-group
+                    label(for='url') URL*:  
+                    input.form-control(type='text' name='url' required)
+                .form-group
+                    label(for='dateTime') Date/Time:
+                    input.form-control(type='text' name='dateTime')
+                .form-group
+                    label(for='length') Length:
+                    input.form-control(type='number' name='length' min='0' max='24')
+                .form-group
+                    label(for='recurring') Recurring:
+                    input.form-control(type='text' name='recurring')
+
+
+                small.text-blue * indicates required field
+                div.my-2
+                    button.btn.btn-primary.mr-4(type="submit") Create
+                    button.btn.btn-warning(type="reset") Clear
+
+

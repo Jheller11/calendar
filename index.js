@@ -52,6 +52,10 @@ app.get('/', (req, res, next) => {
 })
 
 // error handler
+app.use((error, req, res, next) => {
+  if (error) console.log(error)
+  next()
+})
 
 // set port
 app.set('port', process.env.PORT || 4000)

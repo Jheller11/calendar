@@ -39,7 +39,13 @@ router.get('/', isLoggedIn, (req, res, next) => {
 // post new
 router.post('/', isLoggedIn, (req, res, next) => {
   Item.create({
-    // finish after confirming schema
+    title: req.body.title,
+    dateTime: req.body.dateTime,
+    length: req.body.length,
+    url: req.body.url,
+    recurring: req.body.recurring,
+    'createdBy.name': req.user.local.displayName,
+    'createdBy.id': req.user.id
   })
     .then(() => res.redirect('/calendar'))
     .catch(err => next(err))
