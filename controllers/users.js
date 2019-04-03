@@ -18,7 +18,7 @@ router.get('/profile', isLoggedIn, (req, res) => {
 router.post(
   '/login',
   passport.authenticate('local-login', {
-    successRedirect: '/users/profile',
+    successRedirect: '/calendar',
     failureRedirect: '/users/login',
     failureFlash: true
   })
@@ -27,7 +27,7 @@ router.post(
 router.post(
   '/signup',
   passport.authenticate('local-signup', {
-    successRedirect: '/users/profile',
+    successRedirect: '/calendar',
     failureRedirect: '/users/signup',
     failureFlash: true
   })

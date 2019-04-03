@@ -1,5 +1,12 @@
 extends ../layout.pug
 
+block script
+    script(type='text/javascript').
+        var items = !{JSON.stringify(items)}
+ 
+    script(src="scripts/itemsIndex.js" defer)
+
+
 block content
     .nav.d-flex.justify-content-between
         a.nav-link(href='/calendar') 
